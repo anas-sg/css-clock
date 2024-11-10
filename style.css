@@ -1,11 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');*/
 
 html {
+/*    font-family: 'Montserrat', sans-serif;*/
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+html.dark {
+  background-color:black;
+  color: white;
+}
+
+html.light {
     background: linear-gradient(to top left, rgb(103, 227, 252), rgb(215, 246, 255));
     background-size: cover;
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-  }
+}
 
   body {
     margin: 0;
@@ -27,12 +36,18 @@ h1 {
   font-weight: 400;
   font-size: 4rem;
 }
+#time.light {
+  color: darkgreen;
+}
+#time.dark {
+  color: lightgreen;
+}
 
   .clock {
     width: 30rem;
     height: 30rem;
     border: 20px solid rgb(226, 226, 226);
-    background: linear-gradient(to top left, rgb(243, 243, 243), #fff);
+    
     border-radius: 50%;
     margin: 1rem auto;
     position: relative;
@@ -42,6 +57,12 @@ h1 {
       inset 0 0 0 5px  rgb(169, 169, 170),
       inset 0 0 15px rgba(0, 0, 0, 0.863),
       0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  .clock.light {
+    background: linear-gradient(to top left, rgb(243, 243, 243), #fff);
+  }
+  .clock.dark {
+    
   }
 
   @media only screen and (max-width: 240px){
@@ -68,7 +89,7 @@ h1 {
     top: 15.25rem;
   }
 
-  .twelwe {
+  .twelve {
     top: 2rem;
     left: 15.25rem;
   }
@@ -104,7 +125,7 @@ h1 {
     top: 14.75rem;
     left: 0;
     transform-origin: 100%;
-    border: 1px solid rgb(12, 12, 12,0);
+    border: 1px solid rgb(12, 12, 12, 0);
     transform: translateY(-1.5px);
   }
 
@@ -115,6 +136,12 @@ h1 {
     position: inherit;
     left: 0;
     bottom: 1.25px;
+  }
+  span.light {
+    background-color: rgb(34, 32, 32);
+  }
+  span.dark {
+    background-color: white;
   }
 
   .ten {transform: rotate(30deg);}
@@ -130,7 +157,7 @@ h1 {
     position: relative;
     width: 100%;
     height: 100%;
-    transform: translate(-3px,-3px,0); /*height of clock hands /2 */
+    transform: translate(-3px, -3px); /*height of clock hands /2 */
   }
 
   .hand {
@@ -145,6 +172,12 @@ h1 {
     transform-origin: 100%;
     border-radius: 50% 0% 0% 50%;
   }
+  .hand.light {
+    background: black;
+  }
+  .hand.dark {
+    background: white;
+  }
 
   .hour-hand {
     width: 35%;
@@ -158,7 +191,7 @@ h1 {
   .second-hand {
     width: 50%;
     height: 4px;
-    background: rgb(231, 19, 19);
+    background: rgb(231, 19, 19) !important;
   }
 
   .dot {

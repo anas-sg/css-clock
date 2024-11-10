@@ -1,30 +1,27 @@
+var DARK_MODE = true;
+const ELEMS = ["html", "span", ".clock", ".hand", "#time"];
+
 const displayDate = () => {
     let date = new Date();
-    let year = date.getYear();
-    let dayOfMonth = date.getUTCDate();
-
-    const optionsDay = {weekday: 'short'};
-    const optionsMonth = {month: 'short'};
-
-    let d = new Intl.DateTimeFormat('smj-NO', optionsDay).format(date);
-    let m = new Intl.DateTimeFormat('smj-NO', optionsMonth).format(date);
-
-    let h2 = document.querySelector('h2');
-    h2.textContent = `${d} ${dayOfMonth}. ${m} ${year-100}`;
+    const format = new Intl.DateTimeFormat("en-UK", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+    let dateElem = document.querySelector('#date');
+    dateElem.textContent = format.format(date);
 };
 
 const displayDigitalTime = () => {
     let date = new Date();
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    let seconds = date.getSeconds();
-
-    let mins = (minutes < 10) ? '0' + minutes.toString() : minutes.toString();
-    let secs = (seconds < 10) ? '0' + seconds.toString() : seconds.toString(); 
-    let hrs = (hours < 10) ? '0' + hours.toString() : hours.toString(); 
-    
-    let h3 = document.querySelector('h3');
-    h3.textContent = `${hrs} : ${mins} : ${secs}`;
+    const format = new Intl.DateTimeFormat("en-UK", {
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true,
+    });
+    let timeElem = document.querySelector('#time');
+    timeElem.textContent = format.format(date);
 };
 
 const displaySeconds = () => {
@@ -67,6 +64,35 @@ const callAllFunctions = () => {
     displayHours();
 };
 
-setInterval(callAllFunctions, 1000);
+const toggleMode = (test) => {
+    if (test === undefined) {
+        var currentMode = DARK_MODE ? "dark" : "light";
+        var newMode = DARK_MODE ? "light" : "dark";
+        DARK_MODE = !DARK_MODE;
+    } else if (test == "dark") {
+        var currentMode = "light";
+        var newMode = "dark";
+        DARK_MODE = true;
+    } else {
+        var currentMode = "dark";
+        var newMode = "light";
+        DARK_MODE = false;
+    } 
+    
+    for (let i in ELEMS) {
+        var list = document.querySelectorAll(ELEMS[i]);
+        for (var j = 0; j < list.length; j++) {
+            list[j].classList.remove(currentMode);
+            list[j].classList.add(newMode);
+        }
+    }
+    
+};
 
+document.addEventListener('keydown', (event) => {
+    if (event.key == 'x') {
+        toggleMode();
+    }
+});
+setInterval(callAllFunctions, 1000);
 callAllFunctions();

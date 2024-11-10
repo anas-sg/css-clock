@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ondblclick="toggleMode()">
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
   <title>JS + CSS Clock</title>
 </head>
@@ -10,13 +11,13 @@
 <body>
 
   <header>
-    <h1>css clock</h1>
-    <h2></h2>
-    <h3></h3>
+    <!-- <h1 id="title">css clock</h1> -->
+    <h1 id="date"></h1>
+    <h1 id="time"></h1>
   </header>
 
   <div class="clock" id="clock">
-    <em class="twelwe">12</em>
+    <em class="twelve">12</em>
     <em class="three">3</em>
     <em class="six">6</em>
     <em class="nine">9</em>
@@ -41,7 +42,12 @@
   </div>
 
   <script src="script.js"></script>
-
+  <script type="text/javascript">
+    (function () {
+      toggleMode("dark");
+    })();
+  </script>
+  
 </body>
 
 </html>

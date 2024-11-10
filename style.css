@@ -1,4 +1,35 @@
 /*@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');*/
+body, html {
+    /* Full height */
+    height: 100%;
+}
+
+html, body:-webkit-full-screen {
+  width: 100% !important;
+}
+html, body:-moz-full-screen {
+  width: 100% !important;
+}
+html, body:-ms-fullscreen {
+  width: 100% !important;
+}
+html, body:fullscreen {
+  width: 100% !important;
+}
+
+/* While in fullscreen, hide any children with class 'tohide' */
+:-webkit-full-screen .tohide {
+  display: none;
+}
+:-moz-full-screen .tohide {
+  display: none;
+}
+:-ms-fullscreen .tohide {
+  display: none;
+}
+:fullscreen .tohide {
+  display: none;
+}
 
 html {
 /*    font-family: 'Montserrat', sans-serif;*/

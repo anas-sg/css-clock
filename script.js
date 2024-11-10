@@ -94,5 +94,8 @@ document.addEventListener('keydown', (event) => {
         toggleMode();
     }
 });
+window.onclick = function(e){ 
+    document.querySelector("body").requestFullscreen();
+}
 setInterval(callAllFunctions, 1000);
 callAllFunctions();
